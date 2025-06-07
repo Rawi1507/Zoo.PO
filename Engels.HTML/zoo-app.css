@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.top-buttons {
+  max-width: 1100px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.back-button, .pause-button {
+  padding: 10px 25px;
+  background-color: #4a6e35;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover, .pause-button:hover {
+  background-color: #3e5a2a;
+}
+
+.hero {
+  position: relative;
+  background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 40px auto;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.custom-logo {
+  height: 450px;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+  width: auto;
+}
+
+.blocks {
+  max-width: 1100px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.block {
+  background-color: #e9f0db;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  padding: 25px 20px;
+  flex: 1 1 250px;
+  max-width: 260px;
+  color: #3e5a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background-color: #d5e1a3;
+}
+
+.block h3 {
+  margin-top: 0;
+  color: #4a6e35;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.block p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #e0e0e0;
+  font-size: 0.9em;
+  color: #666;
+  max-width: 1100px;
+  margin: 0 auto 30px auto;
+  border-radius: 0 0 12px 12px;
+}
+
+@media (max-width: 600px) {
+  .blocks {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .block {
+    max-width: 90%;
+  }
+}

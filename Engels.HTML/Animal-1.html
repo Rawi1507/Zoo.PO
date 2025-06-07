@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Keuze Simulatie & Documenten - Zoo PO</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 5%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      height: 250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+    }
+
+    .back-button {
+      margin: 20px auto;
+      display: block;
+      max-width: 1100px;
+      padding: 10px 25px;
+      background-color: #4a6e35;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .back-button:hover {
+      background-color: #3e5a2a;
+    }
+
+    .blocks {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .block {
+      background-color: #e9f0db;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      flex: 1 1 250px;
+      max-width: 260px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+    }
+
+    .block h3 {
+      margin-top: 0;
+      color: #4a6e35;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .block p {
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .blocks {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .block {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <button class="back-button" onclick="history.back()">← Terug</button>
+
+  <section class="blocks">
+    <div class="block" onclick="window.open('https://msa2-my.sharepoint.com/:w:/r/personal/31495_edu_msa_nl/_layouts/15/doc2.aspx?sourcedoc=%7BBCAC9A68-D35F-4013-B686-232596E2A047%7D&file=Document%2015.docx&action=default&mobileredirect=true&wdOrigin=OFFICE-OFFICE-METAOS.FILEBROWSER', '_blank')">
+      <h3>Giant Panda</h3>
+      <p>Look at the document.</p>
+    </div>
+     <div class="block" onclick="window.open('https://msa2-my.sharepoint.com/:w:/r/personal/31495_edu_msa_nl/_layouts/15/Doc.aspx?sourcedoc=%7B9E2951CE-D02B-42C8-9102-DCDF9DB9946B%7D&file=Document%2026.docx&action=default&mobileredirect=true&wdOrigin=OFFICE-OFFICE-METAOS.FILEBROWSER', '_blank')">
+      <h3>Giant Panda statistics</h3>
+      <p>Look at the document.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+</body>
+</html>

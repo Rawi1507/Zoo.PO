@@ -1,0 +1,193 @@
+\<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dieren Documenten - Zoo PO</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 5%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      height: 250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+    }
+
+    .back-button {
+      margin: 20px auto;
+      display: block;
+      max-width: 1100px;
+      padding: 10px 25px;
+      background-color: #4a6e35;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+      width: fit-content;
+    }
+    .back-button:hover {
+      background-color: #3e5a2a;
+    }
+
+    .blocks {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .block {
+      background-color: #e9f0db;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      flex: 1 1 250px;
+      max-width: 260px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+      color: #2f451d;
+    }
+
+    .block h3 {
+      margin-top: 0;
+      color: #4a6e35;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .block p {
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .blocks {
+        flex-direction: column;   
+        align-items: center;
+      }
+
+      .block {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <button class="back-button" onclick="history.back()">← Terug</button>
+
+  <section class="blocks">
+    <a href="Animal-1.html" class="block">
+      <h3>Giant Panda </h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-2.html" class="block">
+      <h3>Sumatran tiger </h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-3.html" class="block">
+      <h3>Aziatische olifant</h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-4.html" class="block">
+      <h3>Okapi</h3>
+      <p>Bekijk document.</p>
+    </a>
+    <a href="Animal-5.html" class="block">
+      <h3>Golden-headed lion tamarin</h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-6.html" class="block">
+      <h3>Sea otter</h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-7.html" class="block">
+      <h3>Green sea turtle </h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-8.html" class="block">
+      <h3>Southern hornbill</h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-9.html" class="block">
+      <h3>Aardvark</h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-10.html" class="block">
+      <h3>Axolotl</h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-11.html" class="block">
+      <h3>Capybara</h3>
+      <p>Look at the document.</p>
+    </a>
+    <a href="Animal-12.html" class="block">
+      <h3>Egyptian fruit bat</h3>
+      <p>Look at the document.</p>
+    </a>
+  </section>
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+</body>
+</html>

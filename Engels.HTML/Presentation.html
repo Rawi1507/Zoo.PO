@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Presentation.html</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: url('https://www.computerworld.com/wp-content/uploads/2025/04/1647230-0-34259700-1744011300-powerpoint-cheat-sheet-primary-2000px.jpg?resize=1536%2C864&quality=50&strip=all') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    position: relative;
+  }
+  .link-blok {
+    width: 280px;
+    height: 110px;
+    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    color: #4b2e83;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 10px 15px rgba(255, 204, 51, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .link-blok:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(255, 204, 51, 1);
+    color: #3a1a66;
+  }
+  .Back-knop {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #4b2e83;
+    color: #ffcc33;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(75, 46, 131, 0.7);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    z-index: 1000;
+  }
+  .Back-knop:hover {
+    background-color: #6a48b5;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+
+<button class="Back-knop" onclick="history.back()">Back</button>
+
+<a href="https://msa2-my.sharepoint.com/personal/31495_edu_msa_nl/_layouts/15/doc.aspx?sourcedoc={276727e6-06c4-447c-9956-e5da00bb6255}&action=edit" target="_blank" class="link-blok">
+  Open Rawi&Yuan Presentation
+</a>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Keuze Simulatie & Wordocumenten - Zoo PO</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .top-buttons {
+      max-width: 1100px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #4a6e35;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+      font-size: 1em;
+      border: none;
+    }
+
+    .back-button:hover {
+      background-color: #3e5a2a;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 5%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      height: 250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+    }
+
+    .blocks {
+      max-width: 1100px;
+      margin: 0 auto 60px auto;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .block {
+      background-color: #e9f0db;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      flex: 1 1 45%;
+      max-width: 45%;
+      min-width: 250px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+    }
+
+    .block h3 {
+      margin-top: 0;
+      color: #4a6e35;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .block p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .blocks {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .block {
+        max-width: 90%;
+      }
+
+      .top-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+   <!-- Terugknop boven de hero, gecentreerd -->
+  <div class="top-buttons">
+    <button class="back-button" onclick="history.back()">← Terug</button>
+  </div>
+  
+  <section class="blocks">
+    <div class="block" onclick="location.href='simulatie.html'">
+      <h3>Simulation </h3>
+      <p>Start the zoo simulation here.do it first and read ten how does this app works and than Animal wordocumenten and then the last one.</p>
+    </div>
+    
+    <div class="block" onclick="location.href='Animals-documents.html'">
+      <h3>Animal wordocumenten</h3>
+      <p>Look at the Animals-documents.</p>
+    </div>
+
+    <div class="block" onclick="location.href='How-does-work-the-zoo-app.html'">
+      <h3>How does work the zoo app</h3>
+      <p>How does work the zoo app info for it.</p>
+    </div>
+    
+    <div class="block" onclick="location.href='Prototype-app.html'">
+      <h3>Prototype app</h3>
+      <p>Prototype app that you can test here.</p>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+</body>
+</html>

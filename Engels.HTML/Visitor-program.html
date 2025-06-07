@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yellow Garden - Stap 2</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      height: 70vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 1%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      height: 1250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+      z-index: 10;
+    }
+
+    .back-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 20px auto 40px;
+      display: block;
+      max-width: 120px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      z-index: 15;
+      user-select: none;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+
+    .blocks {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 0 20px;
+      justify-content: center;
+      color: #3e5a2a;
+    }
+
+    .block {
+      background-color: rgba(233, 240, 219, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      min-height: 180px;
+      font-size: 1.1em;
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    .block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+    }
+
+    .block h3 {
+      margin-top: 0;
+      color: #4a6e35;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .blocks {
+        grid-template-columns: 1fr;
+        max-width: 90vw;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <button class="back-button" onclick="history.back()">← Terug</button>
+
+  <div class="blocks">
+    <div class="block" onclick="window.open('https://msa2-my.sharepoint.com/personal/31495_edu_msa_nl/_layouts/15/doc2.aspx?sourcedoc=%7B850AAE69-1839-44DE-B7EE-40BBAECEA0D0%7D&file=Document+15.docx&action=editnew&mobileredirect=true&wdNewAndOpenCt=1748373133383&ct=1748373133866&wdOrigin=OFFICECOM-WEB.MAIN.NEW&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=39315e4f-7df8-4c94-a5b4-b82af30ce79d&cid=f1ae3856-9bb5-4969-8b93-1eae99119eee', '_blank')">
+      <h3>Visitor program (price) Word-document</h3>
+      <p>Open the document with all the info about the (price) Visitor program.</p>
+    </div>
+
+    <div class="block" onclick="window.open('https://msa2-my.sharepoint.com/:w:/r/personal/31495_edu_msa_nl/_layouts/15/doc2.aspx?sourcedoc=%7B3A6F2907-9CFA-43F5-A825-749EC4FB0BFC%7D&file=Document%2015.docx&action=editnew&mobileredirect=true&wdNewAndOpenCt=1748196446271&ct=1748196446649&wdOrigin=OFFICECOM-WEB.MAIN.NEW&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=50e95d2b-7f82-473a-bb3e-146849fbe2af&cid=af8ecad1-4e6e-4e9e-9588-6fb44e445ec2', '_blank')">
+      <h3>Visitor program (opening hours) Word-document</h3>
+      <p>Open the document with all the info about the Visitor program (opening hours).</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+</body>
+
+</html>

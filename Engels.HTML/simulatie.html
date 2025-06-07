@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulatie - Zoo PO</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .top-buttons {
+      max-width: 1100px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .back-button, .pause-button {
+      padding: 10px 25px;
+      background-color: #4a6e35;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      border: none;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover, .pause-button:hover {
+      background-color: #3e5a2a;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      margin: 40px auto 40px auto;
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+     .custom-logo {
+      position: absolute;
+      top: 5%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      height: 250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+    }
+    
+    .animal-grid {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .animal {
+      background-color: #e9f0db;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+
+    .animal:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+    }
+
+    .animal h3 {
+      margin: 0 0 15px 0;
+      font-size: 1.4em;
+      color: #4a6e35;
+    }
+
+    .stat {
+      width: 100%;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .stat label {
+      font-weight: 600;
+      font-size: 0.95em;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .stat progress {
+      width: 100%;
+      height: 18px;
+      border-radius: 8px;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    progress::-webkit-progress-bar {
+      background-color: #c6d0a7;
+      border-radius: 8px;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: #4a6e35;
+      border-radius: 8px;
+    }
+
+    progress::-moz-progress-bar {
+      background-color: #4a6e35;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+      max-width: 1100px;
+      margin: 0 auto 30px auto;
+      border-radius: 0 0 12px 12px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="top-buttons">
+    <button class="back-button" onclick="history.back()">← Terug</button>
+    <button id="pauseBtn" class="pause-button">⏸ Pauzeer</button>
+  </div>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <section id="animalContainer" class="animal-grid">
+    <!-- Dieren staan hier direct in HTML, worden geüpdatet via JS -->
+    <!-- We maken 12 dieren handmatig -->
+    <div class="animal" data-id="0">
+      <h3>Giant Panda</h3>
+      <div class="stat">
+        <label>Voeden</label>
+        <progress max="100" value="50"></progress>
+      </div>
+      <div class="stat">
+        <label>Drinken</label>
+        <progress max="100" value="50"></progress>
+      </div>
+      <div class="stat">
+        <label>Slapen</label>
+        <progress max="100" value="50"></progress>
+      </div>
+    </div>
+
+    <div class="animal" data-id="1">
+      <h3>Sumatran tiger</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="2">
+      <h3>Aziatische olifant</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="3">
+      <h3>Okapi</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="4">
+      <h3>Golden-headed lion tamarin</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="5">
+      <h3>Sea otter</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="6">
+      <h3>Green sea turtle</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="7">
+      <h3>Southern hornbill</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="8">
+      <h3>Aardvark</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="9">
+      <h3>Axolotl</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="10">
+      <h3>Capybara</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+    <div class="animal" data-id="11">
+      <h3>Egyptian fruit bat</h3>
+      <div class="stat"><label>Voeden</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Drinken</label><progress max="100" value="50"></progress></div>
+      <div class="stat"><label>Slapen</label><progress max="100" value="50"></progress></div>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+  <script>
+    // JavaScript logica:
+
+    const pauseBtn = document.getElementById('pauseBtn');
+    const animals = [];
+
+    // State pauze
+    let paused = false;
+
+    // Init dieren vanuit DOM
+    document.querySelectorAll('.animal').forEach((animalDiv, idx) => {
+      // Startwaarden random tussen 30-70
+      const startVoeden = 30 + Math.random() * 40;
+      const startDrinken = 30 + Math.random() * 40;
+      const startSlapen = 30 + Math.random() * 40;
+
+      // Verander snelheden 0.5% - 3% per sec
+      const voedselRate = 0.5 + Math.random() * 2.5;
+      const drinkenRate = 0.5 + Math.random() * 2.5;
+      const slapenRate = 0.5 + Math.random() * 2.5;
+
+      animals.push({
+        el: animalDiv,
+        voeden: startVoeden,
+        drinken: startDrinken,
+        slapen: startSlapen,
+        voedselRate,
+        drinkenRate,
+        slapenRate
+      });
+
+      // Voeg eventlisteners toe aan progress bars om te verhogen bij click
+      animalDiv.querySelectorAll('progress').forEach((prog) => {
+        prog.style.cursor = 'pointer';
+        prog.addEventListener('click', () => {
+          if (paused) return;
+          // max 100
+          prog.value = Math.min(100, prog.value + 10);
+          // Update in animals state ook
+          const label = prog.previousElementSibling.textContent.toLowerCase();
+          if(label === 'voeden') {
+            animals[idx].voeden = prog.value;
+          } else if(label === 'drinken') {
+            animals[idx].drinken = prog.value;
+          } else if(label === 'slapen') {
+            animals[idx].slapen = prog.value;
+          }
+        });
+      });
+    });
+
+    // Update functie elke seconde
+    function update() {
+      if(paused) return;
+      animals.forEach((animal, idx) => {
+        animal.voeden = Math.max(0, animal.voeden - animal.voedselRate);
+        animal.drinken = Math.max(0, animal.drinken - animal.drinkenRate);
+        animal.slapen = Math.max(0, animal.slapen - animal.slapenRate);
+
+        // Update progress elementen in DOM
+        const progressElems = animal.el.querySelectorAll('progress');
+        progressElems[0].value = animal.voeden;
+        progressElems[1].value = animal.drinken;
+        progressElems[2].value = animal.slapen;
+      });
+    }
+
+    // Interval aanzetten
+    const intervalId = setInterval(update, 1000);
+
+    // Pauze button toggelen
+    pauseBtn.addEventListener('click', () => {
+      paused = !paused;
+      pauseBtn.textContent = paused ? '▶️ Hervatten' : '⏸ Pauzeer';
+    });
+  </script>
+</body>
+</html>

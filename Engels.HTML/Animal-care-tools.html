@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rawi's en Yuan's Zoo PO</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 5%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      height: 250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+    }
+
+    .back-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 20px auto 40px;
+      display: block;
+      max-width: 120px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+
+    .blocks {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 0 20px;
+      justify-content: center;
+    }
+
+    .block {
+      background-color: #e9f0db;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      min-height: 180px;
+    }
+
+    .block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+    }
+
+    .block h3 {
+      margin-top: 0;
+      color: #4a6e35;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .block p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    footer {
+      width: 100vw;
+      box-sizing: border-box;
+      padding: 20px 0;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
+      position: relative;
+      left: 0;
+      bottom: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .blocks {
+        max-width: 90vw;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <button class="back-button" onclick="history.back()">← Terug</button>
+
+  <div class="blocks">
+    <div class="block" onclick="location.href='The-History-Animal-care-tools.html'">
+      <h3>The History Animal care tools </h3>
+      <p>The history over the Animal care tools.</p>
+    </div>
+
+    <div class="block" onclick="location.href='The-Animal-care-tools-from-now.html'">
+      <h3>The Animal care tools from now</h3>
+      <p>The Animal care tools from now.</p>
+    </div>
+
+    <div class="block" onclick="location.href='The-future-of-Animal-care-tools.html'">
+      <h3>The future of Animal care tools</h3>
+      <p>The future of Animal care tools.</p>
+    </div>
+  </div> <!-- let op: sluit hier de blocks div -->
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+</body>
+</html>

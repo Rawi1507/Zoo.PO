@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zoo Care App - Interactive</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e9f0f7;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    #app {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .animal-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      font-size: 14px;
+      position: relative;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 7px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px 6px 10px 0;
+      font-size: 14px;
+      user-select: none;
+      transition: background-color 0.2s ease;
+    }
+    .button:hover {
+      background-color: #218838;
+    }
+    .counters {
+      margin-bottom: 10px;
+    }
+    .counter {
+      font-weight: bold;
+      margin-right: 12px;
+    }
+    .message {
+      background: #d1ecf1;
+      border: 1px solid #bee5eb;
+      border-radius: 8px;
+      color: #0c5460;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      min-height: 30px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .special-content {
+      background: #f9fafb;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #333;
+    }
+    .quiz-question {
+      margin-bottom: 10px;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin: 3px 0;
+      padding: 6px;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .quiz-options button:hover {
+      background: #0056b3;
+    }
+    .back-button {
+      background-color: #dc3545;
+      margin: 10px 0 20px 0;
+      display: inline-block;
+      font-size: 13px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      user-select: none;
+      transition: background-color 0.2s ease;
+    }
+    .back-button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Zoo Care App</h1>
+<button class="back-button" onclick="history.back()">← Terug</button>
+<div id="message" class="message"></div>
+<p>Help the animals by voting what they need. Then click the special button for extra info, quizzes, or sounds!</p>
+
+<div id="app"></div>
+
+<script>
+  const animals = [
+    {
+      name: "🦓 Okapi",
+      special: "📊 Show statistics",
+      stats: `
+Weight: 200 - 300 kg<br>
+Length: 2 to 2.5 meters<br>
+Height: 1.5 to 1.7 meters<br>
+Speed: 50 km/h<br>
+Lifespan: 15-20 years in the wild, up to 30 years in zoos<br>
+Diet: Eats leaves and fruits<br>
+Habitat: Rainforests in northeast Congo<br>
+Reproduction: One calf every 2.5 years<br>
+Fun fact: Stripes provide camouflage
+`
+    },
+    {
+      name: "🐘 Asian Elephant",
+      special: "🎓 Start educational quiz",
+      quiz: {
+        question: "What does the Asian elephant mostly eat?",
+        options: [
+          { text: "Leaves and grass", correct: true },
+          { text: "Meat", correct: false },
+          { text: "Fish", correct: false }
+        ],
+        explanation: "Asian elephants mainly eat leaves, grass, and fruits."
+      }
+    },
+    {
+      name: "🦫 Capybara",
+      special: "🎶 Play relaxing sounds",
+      soundLink: "https://www.youtube.com/watch?v=2VjpwYM05eo"
+    },
+    {
+      name: "🦎 Axolotl",
+      special: "🔬 Show fact",
+      fact: "Axolotls can regenerate their limbs and organs!"
+    },
+    {
+      name: "🦇 Egyptian Fruit Bat",
+      special: "🔊 Play sound",
+      soundLink: "https://www.youtube.com/watch?v=GL4aNctAuqM"
+    },
+    {
+      name: "🐼 Giant Panda",
+      special: "🍃 Bamboo choice fact",
+      fact: "Giant pandas eat different types of bamboo, including green and golden bamboo."
+    },
+    {
+      name: "🐢 Sea Turtle",
+      special: "🌍 View ocean map fact",
+      fact: "Green sea turtles migrate thousands of kilometers between nesting beaches and feeding grounds."
+    },
+    {
+      name: "🐗 Aardvark",
+      special: "🕳️ Activate digging area fact",
+      fact: "Aardvarks dig deep burrows where they live and find shelter."
+    },
+    {
+      name: "🦅 Southern Hornbill",
+      special: "📣 Play call sound",
+      soundLink: "https://www.youtube.com/watch?v=34pce5hMNDs"
+    },
+    {
+      name: "🐅 Sumatran Tiger",
+      special: "🎥 Camouflage mode fact",
+      fact: "Sumatran tigers use their stripes to blend in the forests and stay hidden."
+    },
+    {
+      name: "🦁 Golden Lion Tamarin",
+      special: "🌴 View tree route fact",
+      fact: "These small monkeys often travel fixed routes through treetops."
+    },
+    {
+      name: "🦦 Sea Otter",
+      special: "🛁 Playtime in water fact",
+      fact: "Sea otters use stones to open shellfish while playing."
+    }
+  ];
+
+  const votes = animals.map(() => ({ food: 0, water: 0, rest: 0 }));
+
+  const appDiv = document.getElementById("app");
+  const messageDiv = document.getElementById("message");
+
+  function clearMessage() {
+    messageDiv.textContent = "";
+  }
+
+  function showMessage(text) {
+    messageDiv.textContent = text;
+  }
+
+  function createAnimalCard(animal, index) {
+    const card = document.createElement('div');
+    card.className = 'animal-card';
+
+    const title = document.createElement('h2');
+    title.textContent = animal.name;
+    card.appendChild(title);
+
+    const counters = document.createElement('p');
+    counters.className = 'counters';
+    counters.innerHTML = `
+      Food: <span class="counter" id="food-${index}">0</span> |
+      Water: <span class="counter" id="water-${index}">0</span> |
+      Rest: <span class="counter" id="rest-${index}">0</span>
+    `;
+    card.appendChild(counters);
+
+    // Buttons food, water, rest
+    ['food', 'water', 'rest'].forEach(type => {
+      const btn = document.createElement('button');
+      btn.className = 'button';
+      btn.textContent = type === 'food' ? '🦴 Needs food' :
+                        type === 'water' ? '💧 Needs water' : '😴 Needs rest';
+      btn.onclick = () => vote(index, type);
+      card.appendChild(btn);
+    });
+
+    // Special button
+    const specialBtn = document.createElement('button');
+    specialBtn.className = 'button';
+    specialBtn.textContent = animal.special;
+    specialBtn.onclick = () => specialAction(animal, index, card);
+    card.appendChild(specialBtn);
+
+    // Div for special content (quiz, stats, sounds, facts)
+    const specialDiv = document.createElement('div');
+    specialDiv.className = 'special-content';
+    specialDiv.id = `special-${index}`;
+    card.appendChild(specialDiv);
+
+    return card;
+  }
+
+  function vote(index, type) {
+    votes[index][type]++;
+    document.getElementById(`${type}-${index}`).textContent = votes[index][type];
+    if (votes[index][type] >= 10) {
+      showMessage(`✅ A zookeeper will now assist the ${animals[index].name.replace(/🦓 |🐘 |🦫 |🦎 |🦇 |🐼 |🐢 |🐗 |🦅 |🐅 |🦁 |🦦 /g, "")}!`);
+      votes[index] = { food: 0, water: 0, rest: 0 };
+      ['food', 'water', 'rest'].forEach(t => {
+        document.getElementById(`${t}-${index}`).textContent = 0;
+      });
+      setTimeout(clearMessage, 4000);
+    }
+  }
+
+  function specialAction(animal, index, card) {
+    const specialDiv = card.querySelector(`#special-${index}`);
+    specialDiv.innerHTML = ''; // clear old content
+
+    // Back button to clear special content
+    const backBtn = document.createElement('button');
+    backBtn.textContent = "🔙 Back";
+    backBtn.className = 'button back-button';
+    backBtn.onclick = () => {
+      specialDiv.innerHTML = '';
+    };
+
+    // Handle stats
+    if (animal.stats) {
+      specialDiv.innerHTML = `<h3>Statistics for ${animal.name.replace(/🦓 |🐘 |🦫 |🦎 |🦇 |🐼 |🐢 |🐗 |🦅 |🐅 |🦁 |🦦 /g, "")}</h3><p>${animal.stats}</p>`;
+      specialDiv.appendChild(backBtn);
+      return;
+    }
+
+    // Handle quiz
+    if (animal.quiz) {
+      showQuiz(animal.quiz, specialDiv, backBtn);
+      return;
+    }
+
+    // Handle facts
+    if (animal.fact) {
+      specialDiv.innerHTML = `<p>${animal.fact}</p>`;
+      specialDiv.appendChild(backBtn);
+      return;
+    }
+
+    // Handle sounds
+    if (animal.soundLink) {
+      // Open new tab with the sound/video
+      window.open(animal.soundLink, "_blank");
+      specialDiv.innerHTML = `<p>🔊 Sound opened in new tab.</p>`;
+      specialDiv.appendChild(backBtn);
+      return;
+    }
+  }
+
+  function showQuiz(quiz, container, backBtn) {
+    container.innerHTML = '';
+
+    const question = document.createElement('p');
+    question.className = 'quiz-question';
+    question.textContent = quiz.question;
+    container.appendChild(question);
+
+    const optionsDiv = document.createElement('div');
+    optionsDiv.className = 'quiz-options';
+
+    quiz.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.textContent = opt.text;
+      btn.onclick = () => {
+        if(opt.correct) {
+          container.innerHTML = `<p><strong>Well done!</strong> ${quiz.explanation}</p>`;
+          container.appendChild(backBtn);
+        } else {
+          container.innerHTML = `<p><strong>Sorry, that is incorrect.</strong> Try again.</p>`;
+          container.appendChild(question);
+          container.appendChild(optionsDiv);
+          container.appendChild(backBtn);
+        }
+      };
+      optionsDiv.appendChild(btn);
+    });
+
+    container.appendChild(optionsDiv);
+    container.appendChild(backBtn);
+  }
+
+  animals.forEach((animal, index) => {
+    const card = createAnimalCard(animal, index);
+    appDiv.appendChild(card);
+  });
+</script>
+
+</body>
+</html>

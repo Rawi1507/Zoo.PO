@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rawi's en Yuan's Zoo PO</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 5%;
+      left: 49%;
+      transform: translate(-50%, -50%);
+      height: 250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+    }
+
+    .back-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 20px auto 40px;
+      display: block;
+      max-width: 120px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+
+   .blocks {
+  max-width: 600px; /* Kleiner zodat er precies twee blokken naast elkaar passen */
+  margin: 0 auto 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.block {
+  width: calc(50% - 15px); /* Twee blokken per rij, rekening houdend met gap */
+}
+
+    .block {
+      background-color: #e9f0db;
+      border-radius: 12px;
+      padding: 40px 30px;
+      cursor: pointer;
+      width: 220px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+      font-size: 1.2em;
+      color: #3e5a2a;
+      font-weight: bold;
+      user-select: none;
+      text-align: center;
+    }
+
+    .block:hover {
+      background-color: #d5e1a3;
+    }
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #dbe7c9;
+  color: #3e5a2a;
+  font-size: 0.95em;
+  border-top: 1px solid #c0d1b2;
+}
+
+  </style>
+</head>
+<body>
+ 
+
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <!-- Terugknop direct onder hero -->
+  <button class="back-button" onclick="history.back()">← Terug</button>
+  
+ 
+  <p style="text-align:center; margin-top: 20px; font-size: 1.2em;">Choose an residence to go further:</p>
+
+  <div class="blocks">
+    <div class="block" onclick="location.href='Savannah plaza.html'">Savannah Plaza</div>
+    <div class="block" onclick="location.href='Chill-place.html'">Chillplace</div>
+    <div class="block" onclick="location.href='Bamboo-Garden.html'">Bamboo Garden</div>
+    <div class="block" onclick="location.href='Dessert camp.html'">Dessert camp</div>
+  </div>
+ 
+  <footer class="footer">
+  © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+</footer>
+
+</body>
+</html>

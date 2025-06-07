@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chillverblijf - Stap 2</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      height: 70vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 15%;
+      left: 46%;
+      transform: translate(-50%, -50%);
+      height: 1250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+      z-index: 10;
+    }
+
+    .back-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 20px auto 40px;
+      display: block;
+      max-width: 120px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      z-index: 15;
+      user-select: none;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+
+    .blocks {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 0 20px;
+      justify-content: center;
+      color: #3e5a2a;
+    }
+
+    .block {
+      background-color: rgba(233, 240, 219, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      min-height: 180px;
+      font-size: 1.1em;
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    .block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+    }
+
+    .block h3 {
+      margin-top: 0;
+      color: #4a6e35;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .blocks {
+        grid-template-columns: 1fr;
+        max-width: 90vw;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <button class="back-button" onclick="history.back()">← Terug</button>
+
+  <div class="blocks">
+    <div class="block" onclick="window.open('https://msa2-my.sharepoint.com/:w:/r/personal/31495_edu_msa_nl/_layouts/15/Doc.aspx?sourcedoc=%7BDF4D703E-93F3-4D57-BA87-3E9480D5D1FD%7D&file=Document%2016.docx&action=editnew&mobileredirect=true&wdNewAndOpenCt=1747946141950&ct=1747946142221&wdOrigin=OFFICECOM-WEB.MAIN.NEW&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=9ecfec52-292b-43f5-91fb-7c090bfe838f&cid=f8480907-9326-4d5e-8248-914048f8ed41', '_blank')">
+      <h3>Chillplace Word-document</h3>
+      <p>Open the document with all the info about the Chillverblijf.</p>
+    </div>
+
+    <div class="block" onclick="window.open('https://www.tinkercad.com/things/hCZJfY2H8Js-chillverblijf/edit?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard', '_blank')">
+      <h3>Chillplace Tinkercad</h3>
+      <p>Check the design of the Chillplace on Tinkercad.</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yellow Garden - Stap 2</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://wallpapers.com/images/high/zoo-tycoon-artwork-2rf6bivzhc4g0hrw.webp');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      height: 70vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-logo {
+      position: absolute;
+      top: 6%;
+      left: 46%;
+      transform: translate(-50%, -50%);
+      height: 1250px;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      width: auto;
+      z-index: 10;
+    }
+
+    .back-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 20px auto 40px;
+      display: block;
+      max-width: 120px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      z-index: 15;
+      user-select: none;
+    }
+
+    .back-button:hover {
+      background-color: #45a049;
+    }
+
+    .blocks {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 0 20px;
+      justify-content: center;
+      color: #3e5a2a;
+    }
+
+    .block {
+      background-color: rgba(233, 240, 219, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      color: #3e5a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      min-height: 180px;
+      font-size: 1.1em;
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    .block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #d5e1a3;
+    }
+
+    .block h3 {
+      margin-top: 0;
+      color: #4a6e35;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .blocks {
+        grid-template-columns: 1fr;
+        max-width: 90vw;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <img src="download.png" alt="Rawi's en Yuan's Zoo PO logo" class="custom-logo" />
+  </section>
+
+  <button class="back-button" onclick="history.back()">← Terug</button>
+
+  <div class="blocks">
+    <div class="block" onclick="window.open('https://msa2-my.sharepoint.com/:w:/r/personal/31495_edu_msa_nl/_layouts/15/Doc.aspx?sourcedoc=%7B728FFE52-A5E1-4331-81B4-FF47DAE3CA47%7D&file=Document%2015.docx&action=editnew&mobileredirect=true&wdNewAndOpenCt=1748103549672&ct=1748103550108&wdOrigin=OFFICECOM-WEB.MAIN.NEW&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=4d85b1fa-4c57-4c2c-854a-261f62ea59e4&cid=86d1e2d7-8d0f-4662-971b-d64694c8372e', '_blank')">
+      <h3>Dessert Camp Word-document</h3>
+      <p>Open the document with all the info about the dessert camp.</p>
+    </div>
+
+    <div class="block" onclick="window.open('https://www.tinkercad.com/things/8KTy5c0uakO/edit?returnTo=%2Fdashboard%2Fdesigns%2F3d', '_blank')">
+      <h3>Dessert Camp Tinkercad</h3>
+      <p>Check the design of the dessert camp on Tinkercad.</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Rawi's and Yuan's Zoo PO - Made for the Zoo PO
+  </footer>
+
+</body>
+</html>
